@@ -1,0 +1,3 @@
+scalar-she-lean: https://github.com/hanyi162013-Yihan/scalar-she-lean at 60a63972f07986442801838fa78e758e2ccc6303
+Mathlib: https://github.com/leanprover-community/mathlib4 at 56a005855ea17e0b0958f73ec801ae140b0a1679
+EllipticPDE commit: d25bc25df4289edc13cb4fa6b79a7d88cbe5b12b

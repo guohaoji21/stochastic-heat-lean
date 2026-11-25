@@ -1,0 +1,29 @@
+Checked 6885 declarations in 517 modules. Unexpected axiom uses: 0.
+HeatTorusVariationalSolution.Solution.maximum_energy.{u_1} {ι : Type u_1} [Fintype ι] {P : ℝ} {T : NNReal}
+  {M : ↥(HeatTorusReal.RealState ι) →L[ℝ] ↥(HeatTorusReal.RealState ι)}
+  {f : NNReal × C(NNReal, ℝ) → ↥(HeatTorusReal.RealState ι)} {g : ↥(HeatTorusReal.RealState ι)}
+  (self : HeatTorusVariationalSolution.Solution P T M f g) :
+  MeasureTheory.Integrable (fun ω => HeatPathMaximum.value T self.path ω ^ 2) HeatCanonicalUsualCross56.completedWiener
+HeatTorusVariationalSolution.Solution.gradient_predictable.{u_1} {ι : Type u_1} [Fintype ι] {P : ℝ} {T : NNReal}
+  {M : ↥(HeatTorusReal.RealState ι) →L[ℝ] ↥(HeatTorusReal.RealState ι)}
+  {f : NNReal × C(NNReal, ℝ) → ↥(HeatTorusReal.RealState ι)} {g : ↥(HeatTorusReal.RealState ι)}
+  (self : HeatTorusVariationalSolution.Solution P T M f g) (i : ι) : MeasureTheory.StronglyMeasurable (self.gradient i)
+HeatPaperGevreyVariational.controllability_threshold {n : ℕ} (hn : 0 < n)
+  {O : Set (Fin n → AddCircle HeatPaperGevreyVariational.period✝)} (hO : IsOpen O) (hOne : O.Nonempty)
+  (c : Fin n → AddCircle HeatPaperGevreyVariational.period✝) {r : ℝ} (hr : 0 < r)
+  (hgap : {x | HeatFlatTorusDistance.distance x c < r} ⊆ Oᶜ) :
+  (∀ (b : (Fin n → AddCircle HeatPaperGevreyVariational.period✝) → ℝ) (C ρ : ℝ),
+      0 < C →
+        0 < ρ →
+          ContDiff ℝ (↑⊤) (b ∘ HeatTorusGevreyCutoff.chart 0) →
+            (∀ (l : List (Fin n)) (x : Fin n → ℝ),
+                |HeatGevreyProduct.mixedPartial l (b ∘ HeatTorusGevreyCutoff.chart 0) x| ≤
+                  C * ρ ^ l.length * ↑l.length.factorial) →
+              ∃ b₀,
+                (∀ (x : UnitAddTorus (Fin n)),
+                    b₀ x = ↑(b ((HeatTorusInitialData.rescale HeatPaperGevreyVariational.period_pos✝) x))) ∧
+                  ∀ (T : NNReal),
+                    0 < T →
+                      HeatPaperGevreyVariational.NullControllable HeatPaperGevreyVariational.period✝ b₀
+                        (⇑(HeatTorusInitialData.rescale HeatPaperGevreyVariational.period_pos✝) ⁻¹' O) T) ∧
+    ∀ (s : ℝ), 1 < s → ∃ d, HeatPaperGevreyVariational.Obstruction HeatPaperGevreyVariational.period_pos✝ d
